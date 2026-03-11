@@ -1,0 +1,216 @@
+:root {
+    --bg-black: #0a0a0a;
+    --bg-dark-grey: #1c1c1e;
+    --text-main: #f5f5f7;
+    --text-muted: #a1a1a6;
+    --plant-green: #4a7c59;
+    --plant-light: #8fc0a9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    overflow-x: hidden; 
+}
+
+/* --- Navigation --- */
+.navbar { position: fixed; top: 0; width: 100%; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+.nav-links { list-style: none; display: flex; gap: 2.5rem; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; }
+
+.nav-links a:hover { 
+    color: var(--text-main); 
+}
+
+/* NEW: Active State Highlight */
+.nav-links a.active {
+    color: var(--plant-green);
+    font-weight: 700; /* Optional: makes the active link slightly bolder */
+}
+
+/* --- Master Layout Elements --- */
+.pin-master {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.project-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Contains the vertical slides inside it */
+    box-shadow: -15px 0 40px rgba(0,0,0,0.7), 15px 0 40px rgba(0,0,0,0.7);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+    background-color: var(--bg-black);
+}
+
+/* Subtle background alternating for vertical slides */
+.bg-alt { background-color: var(--bg-dark-grey); }
+
+/* Z-Index Stacking Order */
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+.z-4 { z-index: 4; }
+
+.content-wrapper { max-width: 1000px; width: 100%; }
+.text-center { text-align: center; }
+
+/* --- Typography --- */
+.accent-text { color: var(--plant-green); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1rem; }
+h1 { font-size: 6vw; font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 1.5rem; }
+.subtitle { font-size: 1.5rem; color: var(--text-muted); max-width: 600px; }
+
+.project-title { font-size: 4rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+.slide-label { color: var(--plant-light); font-size: 1.2rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1.5px; }
+.slide-text { color: var(--text-muted); font-size: 1.8rem; line-height: 1.5; font-weight: 400; }
+
+/* Update your existing mockup-box to include overflow: hidden; */
+.mockup-box { 
+    background: linear-gradient(145deg, #1f1f22, #151517); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    height: 500px; 
+    border-radius: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--plant-green); 
+    font-weight: 500; 
+    font-size: 1.2rem; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+    margin-top: 2rem;
+    
+    /* NEW: This forces anything inside the box to obey the rounded corners */
+    overflow: hidden; 
+}
+
+/* NEW: Make the Canva embed fill the box perfectly */
+.mockup-box iframe {
+    width: 120%;
+    height: 120%;
+    border: none; /* Removes the ugly default browser border */
+    display: block; /* Removes any weird spacing below the iframe */
+}
+
+.contact-info { margin: 3rem 0; font-size: 1.2rem; color: var(--plant-light); line-height: 2; }
+.copyright { font-size: 0.9rem; color: var(--text-muted); }
+
+.scroll-indicator { position: absolute; bottom: 3rem; left: 4rem; display: flex; align-items: center; gap: 1rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+.scroll-indicator .line { width: 50px; height: 1px; background-color: var(--plant-green); }
+
+/* --- About Me / Footer Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 1.5rem; 
+    margin-top: 4rem;
+}
+
+.profile-image-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(145deg, #1f1f22, #151517);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    margin-bottom: 1.5rem;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.profile-img:hover {
+    opacity: 1;
+}
+
+/* Contact Buttons */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-btn {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--bg-dark-grey);
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.contact-btn:hover {
+    background-color: var(--plant-green);
+    color: var(--bg-black);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(74, 124, 89, 0.2);
+}
+
+/* Interests List */
+.about-section h4 {
+    margin-bottom: 1rem;
+}
+
+.interests-list {
+    list-style: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.interests-list li {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+/* Custom Green Bullet Points */
+.interests-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--plant-green);
+    font-weight: bold;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 1rem; 
+}
