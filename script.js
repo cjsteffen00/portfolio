@@ -51,8 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const moveSpeed = 1; 
     const readTime = 0.8; 
-
-    // 3. The Animation Sequence
     
     // HOME PAGE
     tl.addLabel("home") // Bookmark for Home
@@ -79,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .to(".p2-s3", { yPercent: 0, ease: "power1.inOut", duration: moveSpeed })       
       .to({}, { duration: readTime }) 
 
-    // PROJECT 3: TBD
+    // PROJECT 3: Chef
       .to("#project-three", { xPercent: 0, ease: "power1.inOut", duration: moveSpeed }) 
       .addLabel("project-three") // MOVED
       .to({}, { duration: readTime }) 
